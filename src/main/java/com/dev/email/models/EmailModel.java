@@ -22,8 +22,8 @@ public class EmailModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idEmail;
 
-    @Column(name = "idCliente")
-    private Long idFregues;
+    @Column(name = "id")
+    private String id;
 
     @Column(name = "emailFrom")
     private String emailFrom;
