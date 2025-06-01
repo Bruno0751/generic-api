@@ -3,9 +3,7 @@ package com.dev.email.models;
 import com.dev.email.enuns.StatusEmail;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -23,7 +21,7 @@ public class EmailModel {
     private UUID idEmail;
 
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     @Column(name = "emailFrom")
     private String emailFrom;

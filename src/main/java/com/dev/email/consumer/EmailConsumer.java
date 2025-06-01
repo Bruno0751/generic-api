@@ -1,6 +1,6 @@
 package com.dev.email.consumer;
 
-import com.dev.email.dtos.EmailDtoLong;
+import com.dev.email.dtos.EmailDto;
 import com.dev.email.models.EmailModel;
 import com.dev.email.services.EmailService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -18,9 +18,9 @@ public class EmailConsumer {
     }
 
     @RabbitListener(queues = "${broker.queue.email.name}")
-    public void listenEmailQueue(@Payload EmailDtoLong emailDtoLong) {
+    public void listenEmailQueue(@Payload EmailDto emailDto) {
         var emailModel = new EmailModel();
-        BeanUtils.copyProperties(emailDtoLong, emailModel);
+        BeanUtils.copyProperties(emailDto, emailModel);
         emailService.sendEmail(emailModel);
     }
 
